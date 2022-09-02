@@ -1,0 +1,18 @@
+.admin {
+margin-top: 148px;
+display: flex;
+
+justify-content: center;
+    &__conainer {
+        width: 500px;
+    }
+
+    &__body {
+  
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+}
+

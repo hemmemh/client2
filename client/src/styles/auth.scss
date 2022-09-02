@@ -1,0 +1,88 @@
+
+.Auth {
+    margin-top: 128px;
+    padding-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__container {
+    }
+
+    &__body {
+    }
+}
+
+.body-auth {
+    width: 500px;
+    box-shadow: 12px 12px 5px rgba(212,209,205,0.4);
+    display: flex;
+   
+    border-left: 0.3px solid #acd9fd;
+    flex-direction: column;
+    align-items:flex-start;
+    padding: 30px 0 30px 30px;
+    &__logo {
+        align-self: center;
+        text-align: center;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 28px;
+        margin-bottom: 17px;
+    }
+
+    &__input {
+        border-bottom: 1px solid  #000000;
+        padding: 13px 0 13px 18px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 21px;
+        color: #000000;
+        width: 460px;
+        margin-bottom: 30px;
+        
+    }
+
+    &__button {
+align-self: flex-start;
+min-width: 100px;
+background: none;
+border-radius: 3px;
+margin-bottom: 30px;
+border:#81ca21 solid 1px;
+padding: 12px 15px;
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 21px; 
+color: #81ca21;
+
+    }
+
+    &__info {
+        display: flex;
+        gap: 10px
+    }
+    &__link {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;    
+        line-height: 21px;
+        color: #5a99b3;
+        transition: all 0.3s ease 0s;
+        @media (any-hover:hover) {
+                    &:hover{
+                        color: #35c1f8;
+                       
+                    }
+                }
+    }
+    &__text {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;    
+        line-height: 21px;
+        color: #000000;
+    }
+}

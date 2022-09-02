@@ -1,0 +1,17 @@
+@import './null.scss';
+@import './auth.scss';
+@import '../icons/icons.scss';
+@import './shop.scss';
+@import './basket.scss';
+@import '../components/spoiler/spoilerType.scss';
+
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
+._container{
+    max-width: 980px;
+    padding: 0 10px;
+    margin: 0 auto;
+}
+

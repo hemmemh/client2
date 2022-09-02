@@ -1,0 +1,40 @@
+
+@font-face {
+    font-family: 'icons';
+    src: url('../fonts/icons.ttf');
+}
+
+
+[class^="_icon-"]::before,
+[class*="_icon-"]::before{
+    font-family: "icons" !important;
+    font-style: normal;
+    font-weight: normal;
+}
+
+
+._icon-search:before {
+    content: "\e900";
+  }
+  ._icon-cart:before {
+    content: "\e901";
+  }
+  ._icon-delete:before {
+    content: "\e902";
+  }
+  ._icon-longrow1:before {
+    content: "\e903";
+  }
+  ._icon-arroww:before {
+    content: "\e905";
+  }
+  ._icon-check:before {
+    content: "\e906";
+  }
+  ._icon-plus:before {
+    content: "\e907";
+  }
+  ._icon-user:before {
+    content: "\e908";
+  }
+  

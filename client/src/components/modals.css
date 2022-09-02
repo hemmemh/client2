@@ -1,0 +1,104 @@
+.typeModale {
+  width: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 15px;
+}
+
+.typeModale__name {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+  margin-bottom: 30px;
+}
+
+.typeModale__input {
+  padding: 5px 0 5px 10px;
+  border: #000000 1px solid;
+  border-radius: 3px;
+  margin-bottom: 30px;
+  -ms-flex-item-align: stretch;
+      -ms-grid-row-align: stretch;
+      align-self: stretch;
+}
+
+.typeModale__actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.typeModale__button {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: #A5D364;
+  border-radius: 110px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 14px 0;
+  width: 100%;
+}
+
+.typeModale__button._close {
+  border: 1px solid red;
+  color: red;
+}
+
+.typeModale__button._add {
+  border: 1px solid green;
+  color: green;
+  margin-right: 10px;
+}
+
+.typeModale__button._delete {
+  border: 1px solid green;
+  color: green;
+}
+
+.typeModale__select {
+  display: inline-block;
+  border: 1px solid red;
+  background: none;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+.info {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 30px;
+}
+/*# sourceMappingURL=modals.css.map */

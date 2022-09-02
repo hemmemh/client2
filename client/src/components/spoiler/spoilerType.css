@@ -1,0 +1,63 @@
+.spoler {
+  display: inline-block;
+  border-radius: 5px;
+  position: relative;
+}
+
+.spoler__name {
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #4db999;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+.spoler__item {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  border-bottom: 1px solid black;
+}
+
+.spoler__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  overflow: scroll;
+  top: 88%;
+  left: 0;
+  background: #ffffff;
+  background-color: #4db999;
+  pointer-events: none;
+  -webkit-transform: scale(1, 0);
+          transform: scale(1, 0);
+  -webkit-transition: all 0.1s ease 0s;
+  transition: all 0.1s ease 0s;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+}
+
+.spoler__body::-webkit-scrollbar {
+  width: 0;
+}
+
+.spoler__body.active {
+  pointer-events: inherit;
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+  display: block;
+}
+/*# sourceMappingURL=spoilerType.css.map */
