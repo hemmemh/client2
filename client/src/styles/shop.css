@@ -179,8 +179,8 @@
 }
 
 .prev {
-  -webkit-transform: translate(-50%, 0);
-          transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0) rotate(180deg);
+          transform: translate(-50%, 0) rotate(180deg);
 }
 
 .next {
@@ -189,6 +189,7 @@
 }
 
 .main-shop {
+  margin-bottom: 50px;
   width: 100%;
 }
 

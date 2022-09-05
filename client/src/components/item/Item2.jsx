@@ -9,9 +9,11 @@ import { getUserBasket } from '../../http/basketApi'
 import { getBasket, getOneSnikers } from '../../http/snikerApi'
 import { DEVICE_ROUTE } from '../../utils/const'
 import "./item.scss"
-export const Item2 = observer( ({ id, img ,name, price}) => {
+export const Item2 = observer( ({ id, img ,name, price,count}) => {
     const {sniker,user} = useContext(Context)
     const navigate = useNavigate()
+    const [add, setAdd] = useState(false)
+    const [rate, setRate] = useState(false)
     const removeItem = ()=>{
         const index = sniker.basket.findIndex((el)=>el.id === id)
         console.log(index);
@@ -21,13 +23,39 @@ export const Item2 = observer( ({ id, img ,name, price}) => {
         }
         console.log(newBaket);
         sniker.setBasket(newBaket)
+        localStorage.setItem('basket',JSON.stringify(sniker.basket))
         sniker.setCount(sniker.count - 1)
         sniker.setPrice(sniker.price - price)
-      
+        localStorage.setItem('count',JSON.stringify(sniker.count))
+        localStorage.setItem('price',JSON.stringify(sniker.price))
     }
+    const checkRateAndShop = ()=>{
+        if (!add && !rate) {
+            navigate(DEVICE_ROUTE + '/'+ id,)
+        }else if(add && !rate){
+            navigate(DEVICE_ROUTE + '/'+ id + '?sort=date',)
+        }else if(!add && rate){
+            navigate(DEVICE_ROUTE + '/'+ id + '?sort2=date2',)
+        }else if(add && rate){
+            navigate(DEVICE_ROUTE + '/'+ id + '?sort2=date2&sort=date',)
+        }
+       }
+    useEffect(() => {
+        if(sniker.basket.find(item=>item.id === id)){
+            setAdd(true)
+        }
+        //if(user.auth){
+        //    if(user.user.rating.find(it=>it.snickerId === id)){
+        //        setRate(true)
+        //    }
+        //}
+    }, [])
+    
   console.log( sniker.basket);
   return (
-    <div onClick={()=>navigate(DEVICE_ROUTE + '/'+ id)} key={id} className="item">
+    <div onClick={
+        checkRateAndShop
+    } key={id} className="item">
        <div className="item__body body-item">
            <div className="item__left">
            <div className="item__image">  
@@ -40,10 +68,14 @@ export const Item2 = observer( ({ id, img ,name, price}) => {
                <div className="item__cost cost-item">
                    <div className="cost-item__name">Цена:</div>
                    <div className="cost-item__value">{price}</div> 
+                   <div className="cost-item__count">Количество: {count}</div> 
                </div>
            </div>
            </div>
-           <div className="item__right"><button type="submit" onClick={()=>removeItem()} className ="swiper-slide__button">удалить</button></div>
+           <div className="item__right"><button type="submit" onClick={(e)=>{
+            e.stopPropagation()
+            removeItem()
+            }} className ="swiper-slide__button">удалить</button></div>
        </div>
        </div>
 

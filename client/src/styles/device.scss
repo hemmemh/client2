@@ -1,3 +1,57 @@
+
+
+.counter-deviceBody {
+display:flex;
+align-items: center;
+height: 25px;
+position: relative;
+    &__count {
+        border-radius: 10%;
+        border: 2px solid rgb(25, 25, 102);
+        margin-right: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       height: 100%;
+        width: 50px;
+       
+    }
+
+    &__actions {
+        height: 100%;
+    }
+
+    &__inc {
+        
+       
+        height: 50%;
+        background: #1235ab;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 30% 30% 0 0;
+        &._min{
+            border-radius:  0 0 30% 30%;
+            &::before{
+                
+                transform: rotate(90deg);
+                
+            }
+        }
+        &::before{
+          
+        
+
+            color: white;
+            display:block;
+            transform: rotate(-90deg);
+            
+            
+        }
+    }
+}
+
+
 .device {
 margin-top: 156px;
     &__container {
@@ -26,6 +80,8 @@ margin-top: 156px;
         top: 0;
         left: 0;
        }
+    }
+    &__counter {
     }
     &__item{
        

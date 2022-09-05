@@ -23,7 +23,7 @@ export default class SnikerStore{
         this._snikkersLoading=false
         this._TypesAndBrandLoading=false
         this._oneSnikerLoading=false
-        this._oneBrandAndTypeLoading=false
+        this._oneBrandAndTypeLoading={}
 
         makeAutoObservable(this)
     }

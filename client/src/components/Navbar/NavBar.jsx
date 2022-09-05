@@ -23,6 +23,7 @@ export const NavBar = observer( () => {
     sniker.setBasket([])
     sniker.setPrice(0)
     sniker.setCount(0)
+    navigate(SHOP_ROUTE)  
     return data
   }
   useEffect(() => {

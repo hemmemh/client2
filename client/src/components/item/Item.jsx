@@ -11,6 +11,8 @@ import "./item.scss"
 export const Item = observer( ({id,img,name,price,brandId,typeId}) => {  
     console.log(id); 
     const [add, setAdd] = useState(false)
+    const [rate, setRate] = useState(false)
+    const [loading, setLoading] = useState(false)
     
     const addBaskett = async (name,price,img,id,brandd,typee)=>{
         const brand = await getOneBrand({idBrand:brandd})
@@ -19,13 +21,28 @@ export const Item = observer( ({id,img,name,price,brandId,typeId}) => {
         localStorage.setItem('basket',JSON.stringify(sniker.basket))
 
     }
-   
+   const checkRateAndShop = ()=>{
+    if (!add && !rate) {
+        navigate(DEVICE_ROUTE + '/'+ id,)
+    }else if(add && !rate){
+        navigate(DEVICE_ROUTE + '/'+ id + '?sort=date',)
+    }else if(!add && rate){
+        navigate(DEVICE_ROUTE + '/'+ id + '?sort2=date2',)
+    }else if(add && rate){
+        navigate(DEVICE_ROUTE + '/'+ id + '?sort2=date2&sort=date',)
+    }
+   }
     const navigate = useNavigate()
     const {sniker,user} = useContext(Context)
 
     useEffect(() => {
         if(sniker.basket.find(item=>item.id === id)){
             setAdd(true)
+        }
+        if(user.auth){
+            if(user.user.rating.find(it=>it.snickerId === id)){
+                setRate(true)
+            }
         }
     }, [])
     
@@ -36,12 +53,9 @@ export const Item = observer( ({id,img,name,price,brandId,typeId}) => {
     }, [user.auth])
     
   return (
-<div key={id} onClick={()=>{
-    !add ?
-    navigate(DEVICE_ROUTE + '/'+ id,)
-    :
-    navigate(DEVICE_ROUTE + '/'+ id + '?sort=date',)
-    }} className="item">
+<div key={id} onClick={
+    checkRateAndShop
+    } className="item">
             <div className="item__body">
                 <div className="item__image">  
                 

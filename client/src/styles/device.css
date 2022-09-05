@@ -1,3 +1,66 @@
+.counter-deviceBody {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 25px;
+  position: relative;
+}
+
+.counter-deviceBody__count {
+  border-radius: 10%;
+  border: 2px solid #191966;
+  margin-right: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  width: 50px;
+}
+
+.counter-deviceBody__actions {
+  height: 100%;
+}
+
+.counter-deviceBody__inc {
+  height: 50%;
+  background: #1235ab;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 30% 30% 0 0;
+}
+
+.counter-deviceBody__inc._min {
+  border-radius: 0 0 30% 30%;
+}
+
+.counter-deviceBody__inc._min::before {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.counter-deviceBody__inc::before {
+  color: white;
+  display: block;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
 .device {
   margin-top: 156px;
 }
@@ -23,8 +86,8 @@
 }
 
 .body-device__image img {
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
   position: absolute;
   width: 100%;
   height: 100%;

@@ -19,7 +19,7 @@ export const Basket = observer(() => {
         <div className="Basket__container">
           <div className="Basket__items">
            {
-           sniker.basket.map((a,c)=><Item2 id={a.id} img={a.img} name={a.name} price={a.price} index={c} />)}
+           sniker.basket.map((a,c)=><Item2 id={a.id} img={a.img} name={a.name} price={a.price} count={a.count} index={c} />)}
           </div>
         </div>
       </div>

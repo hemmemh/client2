@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react'
 import '../styles/style.scss';
-import {useLocation,Link, useNavigate} from 'react-router-dom'
+import {useLocation,Link, useNavigate, useSearchParams} from 'react-router-dom'
 import { NavBar } from '../components/Navbar/NavBar'
-import { LOGIN_ROUTE, REGISTRARTION_ROUTE, SHOP_ROUTE } from '../utils/const'
+import { DEVICE_ROUTE, LOGIN_ROUTE, REGISTRARTION_ROUTE, SHOP_ROUTE } from '../utils/const'
 
 import { login,registration } from '../http/userApi';
 import jwt_decode from "jwt-decode"
@@ -16,8 +16,9 @@ export const Auth = observer( () => {
     const loaction = useLocation()
     const isAuth = loaction.pathname === LOGIN_ROUTE
     const [email, setemail] = useState('')
+    const [loading, setloading] = useState(true)
     const [password, setpasswordl] = useState('')
-
+    const [useparams,setparams] = useSearchParams()
     const onClick =async ()=>{
         try {
             let data
@@ -29,9 +30,16 @@ export const Auth = observer( () => {
                  user.setAuth(true)
                  console.log(user.user);
                  navigate(SHOP_ROUTE)
+            
+                 
+                 
              }else{
-                 data =await registration(email,password)
                  navigate(SHOP_ROUTE)
+                 data =await registration(email,password)
+                 
+                    
+                 
+              
              }
         } catch (error) {
             alert(error.response.data.message)
@@ -53,11 +61,11 @@ export const Auth = observer( () => {
                 ?
                  <div className="body-auth__info">
                     <div className="body-auth__text">нет акканта </div>
-                    <Link className="body-auth__link"  to={REGISTRARTION_ROUTE}>Зарегистрироваться</Link>
+                     <Link className="body-auth__link"  to={REGISTRARTION_ROUTE}>Зарегистрироваться</Link>
                 </div> 
                 : 
                  <div className="body-auth__info">
-                    <div className="body-auth__text">есть аккаунт </div>
+                    <div className="body-auth__text">есть аккаунт </div>         
                     <Link className="body-auth__link"  to={LOGIN_ROUTE}>Войти</Link>
                 </div> 
                 }

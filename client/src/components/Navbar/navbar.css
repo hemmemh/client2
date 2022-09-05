@@ -411,8 +411,8 @@ h6 {
 }
 
 .prev {
-  -webkit-transform: translate(-50%, 0);
-          transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0) rotate(180deg);
+          transform: translate(-50%, 0) rotate(180deg);
 }
 
 .next {
@@ -421,6 +421,7 @@ h6 {
 }
 
 .main-shop {
+  margin-bottom: 50px;
   width: 100%;
 }
 
@@ -520,6 +521,15 @@ h6 {
   display: inline-block;
   border-radius: 5px;
   position: relative;
+  z-index: 1;
+}
+
+.spoler__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
 }
 
 .spoler__name {
@@ -537,9 +547,10 @@ h6 {
 .spoler__item {
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
+  font-weight: 500;
+  font-size: 20px;
   line-height: 24px;
+  color: #000000;
   border-bottom: 1px solid black;
 }
 
@@ -683,12 +694,40 @@ h6 {
   color: #9B9B9B;
 }
 
+.action-navbar__store span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 10px;
+  bottom: -15px;
+  border-radius: 50%;
+  background: #15a32b;
+  font-size: 12px;
+  color: #ffffff;
+}
+
 .action-navbar__user {
   cursor: pointer;
   padding-top: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .action-navbar__user::before {
+  padding-right: 8px;
   font-size: 20px;
   color: #9B9B9B;
 }

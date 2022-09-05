@@ -82,8 +82,10 @@ export const Shop = observer(() => {
     }, [sniker.page,sniker.activebrand,sniker.activetype,search])
    
       useEffect(() => {
+        setloading(false)
         getSnikkers()
         getTypesAndBrands()
+        setloading(true)
     }, []) 
   
 
@@ -96,9 +98,7 @@ export const Shop = observer(() => {
         const element = index+1;
         pagesArray.push(element)
     }
-    if (sniker.snikkersLoading === false){
-        return <div>Загрузка</div>
-      }else{
+    
         return (
             <div>
                  <NavBar/>
@@ -158,28 +158,31 @@ export const Shop = observer(() => {
                                     <div className="next swiper-arrow _icon-arroww"></div>
                             </div>
                         </div>
-                        <div className="Shop__main main-shop">
-                            <div className="main-shop__actions">
-                                <div className="main-shop__logo">{user.user.id}</div>
-                      
-                                <SpoilerTipe name={sniker.activetype.name || "Тип кросовок"}>
-                                <div onClick={()=> sniker.setActiveTypes({})} className="spoler__item">отменить</div>
-                                {sniker.type.map(typee => <div onClick={()=> sniker.setActiveTypes(typee)} className="spoler__item">{typee.name}</div>)}
-                                </SpoilerTipe>
-                                <SpoilerTipe name={sniker.activebrand.name ||"Бренд кросовок"}>
-                                <div onClick={()=>sniker.setActiveBrand({})} className="spoler__item">отменить</div>
-                                {sniker.brand.map(brandd => <div onClick={()=>sniker.setActiveBrand(brandd)} className="spoler__item">{brandd.name}</div>)}
-                                </SpoilerTipe>
-                                <div className="main-shop__input _icon-search">
-                                    <input type="text" value={search} onChange={(e)=>setsearch(e.target.value)} placeholder='Поиск...' className="main-shop__search "></input>
-                                </div> 
+                        {!loading ? <div>загрузка</div> :
+                             <div className="Shop__main main-shop">
+ <div className="main-shop__actions">
+     <div className="main-shop__logo">{user.user.id}</div>
+     <SpoilerTipe name={sniker.activetype.name || "Тип кросовок"}>
+     <div onClick={()=> sniker.setActiveTypes({})} className="spoler__item">отменить</div>
+     {sniker.type.map(typee => <div onClick={()=> sniker.setActiveTypes(typee)} className="spoler__item">{typee.name}</div>)}
+     </SpoilerTipe>
+     <SpoilerTipe name={sniker.activebrand.name ||"Бренд кросовок"}>
+     <div onClick={()=>sniker.setActiveBrand({})} className="spoler__item">отменить</div>
+     {sniker.brand.map(brandd => <div onClick={()=>sniker.setActiveBrand(brandd)} className="spoler__item">{brandd.name}</div>)}
+     </SpoilerTipe>
+     <div className="main-shop__input _icon-search">
+         <input type="text" value={search} onChange={(e)=>setsearch(e.target.value)} placeholder='Поиск...' className="main-shop__search "></input>
+     </div> 
+ </div>
+ <div className="main-shop__items">
+     {  
+     sniker.snikers.map(snikerr=><Item id={snikerr.id} img={snikerr.img} name={snikerr.name}price={snikerr.price} brandId={snikerr.brandId} typeId={snikerr.typeId} />)
+     }
+ </div>
                             </div>
-                            <div className="main-shop__items">
-                                {  
-                                sniker.snikers.map(snikerr=><Item id={snikerr.id} img={snikerr.img} name={snikerr.name}price={snikerr.price} brandId={snikerr.brandId} typeId={snikerr.typeId} />)
-                                }
-                            </div>
-                        </div>
+                         }
+                       
+
                         <div className="Shop__navpage">
                             <ButtonGroup>
                                 {
@@ -196,7 +199,7 @@ export const Shop = observer(() => {
             </div>
            
           )
-      }
+      
  
 }
 )

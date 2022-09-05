@@ -20,13 +20,20 @@ import Cookies from "js-cookie";
         const {data} =await axios.get('http://localhost:5000/api/user/getAll')
         return data
     }
-
+    
     export const getOneUsers = async (info)=>{
         const {data} =await axios.post('http://localhost:5000/api/user/getOne',info)
         return data
     }
+
+    export const getOneUsers2 = async (info)=>{
+        const {data} =await axios.post('http://localhost:5000/api/user/getOne2',info)
+        return data
+    }
+
+
     export const check = async (userToken)=>{
-        const {data} =await axios.get('http://localhost:5000/api/user',userToken)
+        const {data} =await axios.post('http://localhost:5000/api/user',userToken)
         return data
     }
 

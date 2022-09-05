@@ -2,6 +2,15 @@
   display: inline-block;
   border-radius: 5px;
   position: relative;
+  z-index: 1;
+}
+
+.spoler__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
 }
 
 .spoler__name {
@@ -19,9 +28,10 @@
 .spoler__item {
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
+  font-weight: 500;
+  font-size: 20px;
   line-height: 24px;
+  color: #000000;
   border-bottom: 1px solid black;
 }
 

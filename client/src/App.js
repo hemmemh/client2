@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Context } from ".";
 import { Router } from "./components/Router";
@@ -11,12 +11,24 @@ import { getUserBasket } from "./http/basketApi";
 function App() {
   const location = useLocation()
   const {sniker,user} = useContext(Context)
+  const [admin, setAdmin] = useState(false)
+  const getcheck = async(a1)=>{
+    const res =await check({userToken:a1})
+    return res
+  }
 useEffect(() => {
   if (Cookies.get('userToken')) {
+    const a1 = Cookies.get('userToken')
+    console.log('sdass');
     user.setUser(jwt_decode(Cookies.get('userToken')))
+    console.log(user.user);
     user.setAuth(true)
     sniker.setCount(sniker.count )
     sniker.setPrice(sniker.price)
+    if (user.user.role.find(el=>el.name === "ADMIN")) {
+      console.log('sss');
+      setAdmin(true)
+    }
   }
   if(localStorage.getItem('basket') != null){
     sniker.setBasket(JSON.parse(localStorage.getItem('basket')))
@@ -31,13 +43,9 @@ useEffect(() => {
  
 }, [])
 
-
-
-
-  
   return (
     <div className="App">
-     <Router/>
+     <Router admin={admin}/>
     </div>
   );
 }
